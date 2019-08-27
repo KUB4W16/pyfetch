@@ -20,7 +20,7 @@ function about(){
     document.getElementById("text").innerHTML = '<p>pyfetch is information tool like <a class="link" href="https://github.com/KittyKatt/screenFetch">screenfetch</a> we can see on linux. If you run this script, remember to run script in cmd not in python shell. It give you python version, pip version, pip packages number, OS and architecture.</p>';
 }
 function download(){
-    location.href="../download/pyfetch.py";
+    location.href ="/KUB4W16/pyfetch/archive/master.zip";
 }
 function openGithub(){
     location.href = "https://github.com/KUB4W16/pyfetch";
