@@ -6,9 +6,6 @@ document.addEventListener("keypress", function(event){
         about()
     }
     else if (event.keyCode == 51){
-        download()
-    }
-    else if (event.keyCode == 52){
         openGithub()
     }
 })
@@ -18,9 +15,6 @@ function home(){
 }
 function about(){
     document.getElementById("text").innerHTML = '<p>pyfetch is information tool like <a class="link" href="https://github.com/KittyKatt/screenFetch">screenfetch</a> we can see on linux. If you run this script, remember to run script in cmd not in python shell. It give you python version, pip version, pip packages number, OS and architecture.</p>';
-}
-function download(){
-    location.href ="/KUB4W16/pyfetch/archive/master.zip";
 }
 function openGithub(){
     location.href = "https://github.com/KUB4W16/pyfetch";
