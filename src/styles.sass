@@ -1,21 +1,26 @@
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css)
     
+
 body
-    background-color: rgb(17,17,17)
+    background-color: rgb(17, 17, 17)
     color: #ffffff
     font-family: "Fira Code", monospace
     font-size: 16px
 
+  
 ::-webkit-scrollbar
-  width: 10px
+    width: 10px
+
 
 ::-webkit-scrollbar-track
-  background: transparent
+    background: transparent
+
 
 ::-webkit-scrollbar-thumb
-  background: #fff
-  &:hover
-  	background: #eee 
+    background: #fff
+    &:hover
+        background: #eee 
+
 
 .header
     text-align: center
@@ -23,7 +28,7 @@ body
     font-size: 24px
     font-weight: normal
     margin: 0 auto
-    letter-spacing: .15em 
+    letter-spacing: .25em      
 
 
 .nav
@@ -35,8 +40,9 @@ body
         font-weight: 400 
         letter-spacing: .15em 
         &:hover
-            color: #FFFF66
+            color: #ffdf76
 
+      
 .link
     color: #ffffff
     letter-spacing: 0.1em
@@ -45,13 +51,41 @@ body
     text-decoration: none
     cursor: pointer
     &:hover
-        color: #0088f2
+        color: #3776ab
 
+  
 .container
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
+    &__inner
+        position: relative
+        &::before
+            padding: 5px
+            position: absolute
+            content: ''
+            display: block
+            width: 200px
+            height: 200px
+            top: -10px
+            left: -10px
+            background-color: #3776ab
+            opacity: 0.1
+            z-index: -1
+        &::after
+            padding: 5px
+            position: absolute
+            content: ''
+            display: block
+            width: 200px
+            height: 200px
+            top: 50px
+            left: 100px
+            background-color: #ffdf76
+            opacity: 0.1
+            z-index: -1
 
-#text
+    
+#description
     max-width: 400px
