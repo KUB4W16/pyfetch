@@ -8,10 +8,11 @@ import requests
 import pkgutil
 from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style
+from time import sleep
 
 
 def main():
-    os.system("cls")
+    clear()
     ver = platform.python_version()
     architecture = platform.architecture()
     system = platform.platform()
@@ -19,7 +20,6 @@ def main():
     implementation = platform.python_implementation()
     pip_ver = pip.__version__
     packages_num = sys.modules.__len__()
-
 
     python_art = [
         Fore.BLUE + "          ,.:;!!!;:.,                " + Fore.BLUE + "Python:                " + Fore.YELLOW + ver,
@@ -37,29 +37,59 @@ def main():
         Fore.YELLOW + "            `':;!!!;:'`              "
     ]
 
-
     for i in python_art:
         print(i)
 
     print(Fore.WHITE, "\n[1]Show packages list    [2]Find module description    [3]Exit")
-    select = int(input("Enter option number: ")) 
+    try:
+        select = int(input("Enter option number: "))
+    except:
+        print(Fore.RED, "Error: Valid value. You need to enter a number between 1-3.")
+        pause()
+        main()
     if select == 1:
         print_packages()
     elif select == 2:
         pypi_scrapping()
     elif select == 3:
         exit()
-    else: 
-        os.system("pause")
-        os.system("cls")
+    else:
+        pause()
+        clear()
         main()
+
+
+def clear():
+    if platform.system() == "Windows":
+        os.system("cls")
+    elif platform.system() == "Linux":
+        os.system("clear")
+    elif platform.system == "Darwin":
+        os.system("reset")
+    else:
+        print("Your os is not suported!")
+        sleep(5)
+        exit()
+
+
+def pause():
+    if platform.system() == "Windows":
+        os.system("pause")
+    elif platform.system() == "Linux":
+        input("Press any key to continue . . .")
+    elif platform.system == "Darwin":
+        input("Press any key to continue . . .")
+    else:
+        print("Your os is not suported!")
+        sleep(5)
+        exit()
 
 
 def print_packages():
     for i, value in enumerate(pkgutil.iter_modules()):
         print(Fore.YELLOW, "[", i + 1, "]", Fore.WHITE, value.name)
-    os.system("pause")
-    os.system("cls")
+    pause()
+    clear()
     main()
 
 
@@ -73,23 +103,24 @@ def pypi_scrapping():
             output = html.find(class_="project-description")
             print("\n\n", Fore.BLUE, name, Fore.YELLOW, "PyPi Description")
             print(Fore.WHITE, output.text)
-            os.system("pause")
-            os.system("cls")
+            pause()
+            clear()
             main()
         elif response.status_code == 404:
-            print(Fore.RED, "Error 404: No module named %s in PyPi. Please check spelling." % name)
-            os.system("pause")
-            os.system("cls")
+            print(
+                Fore.RED, "Error 404: No module named \"%s\" in PyPi. Please check spelling." % name)
+            pause()
+            clear()
             main()
         else:
             print(Fore.RED, "Unknown Error: Something went wrong.")
-            os.system("pause")
-            os.system("cls")
+            pause()
+            clear()
             main()
-
 
     except requests.exceptions.ConnectionError:
         print("Error 404: no internet connection.")
+
 
 if __name__ == "__main__":
     main()
