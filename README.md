@@ -6,4 +6,3 @@ This is github pages branch you can see here how I made my page.
   - styles.css - compiled .css stylesheet
   - styles.sass - .sass style sheet
   - styles.css.map - .css.map
-  - script.js - main javascript file
