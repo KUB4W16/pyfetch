@@ -1,5 +1,5 @@
 # pyfetch
-Information tool like screenfetch for Python3
+An Information tool like screenfetch for Python3
 
 #### How to use
 Clone repository, run script `pyfetch.py` in cmd or open file and it's end
